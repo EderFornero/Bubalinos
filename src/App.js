@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+//router
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//context
+import { UseFirebaseContext } from './Context/UseFirebaseContext.js'
+//views
+import Home from "./Views/Home.jsx";
+import Presentation from "./Views/Presentation.jsx";
+//style
+import "./styles/styles.scss"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Presentation />} />
+        <Route path='/home' element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
