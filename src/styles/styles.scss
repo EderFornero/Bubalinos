@@ -1,5 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 
+//variables
+$manrope-font: 'Manrope';
+$main-color: rgb(206, 191, 191);
+$text-color: #000;
+
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+$header-height: 70px;
+$description-height: 100vh;
+$box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+
+$sm: 37.5em;
+$md: 48em;
+$lg: 64em;
+$xl: 75em;
+
+$line-height: 22.5px;
+$line-height-li: 30px;
+
+@mixin breakpoint($point) {
+    @if $point ==md {
+        @media (min-width: $md) {
+            @content;
+        }
+    }
+}
+
+* {
+    font-family: $manrope-font;
+
+    ::-webkit-scrollbar {
+        width: 15px;
+        background: $main-color;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(255, 253, 253);
+        border-radius: 10px;
+    }
+}
+
+//presentation
 
 .div-presentation-img {
     position: absolute;
@@ -14,29 +58,29 @@
     img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
 }
 
 .div-presentation-text {
-    width: 100%;
-    height: 650px;
-    font-family: 'Manrope';
+    width: 90%;
+    height: 100vh;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 
     .div-presentation-text-p {
-        background-color: rgb(206, 191, 191);
-        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        background-color: $main-color;
+        box-shadow: $box-shadow;
         border-radius: 10px;
         height: 300px;
         width: 300px;
         text-align: center;
-        margin-right: 50px;
+        align-items: center;
         position: relative;
 
         .div-production {
-           
+
             .production {
                 background: none;
                 border: none;
@@ -51,11 +95,12 @@
                 transition: all .5s;
             }
 
-            .arrowSvg{
+            .arrowSvg {
                 width: 18px;
                 height: 18px;
             }
-            .arrowSvg:hover{
+
+            .arrowSvg:hover {
                 transition: all .5s;
                 color: white;
                 width: 30px;
@@ -73,4 +118,151 @@
             font-size: 12px;
         }
     }
+}
+
+
+//navbar
+
+.div-navbar-main {
+    height: $header-height;
+    background-color: $main-color;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @include breakpoint(md) {
+        padding: 0 $spacing-lg;
+    }
+
+    transition: .3s ease padding;
+
+    .div-navbar-logo {
+        width: 100%;
+        height: 100%;
+        padding-left: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .div-navbar-navegation {
+        width: 40%;
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+
+        @media (max-width: $sm) {
+            font-size: 15px;
+            margin-right: 35px;
+        }
+
+        transition: .3s all;
+
+        div {
+            margin: 25px;
+        }
+
+        .div-init-nav:hover {
+            font-size: 22px;
+            transition: all .3s;
+        }
+
+        .div-handle-nav:hover {
+            font-size: 22px;
+            transition: all .3s;
+        }
+
+    }
+}
+
+
+//description 
+
+.div-description {
+    width: 100%;
+    height: auto;
+    background: url("../assets/images/presentation.jpg");
+    object-fit: cover;
+    display: block;
+
+    .div-description-main {
+        width: 100%;
+        height: $description-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("../assets/images/presentation.jpg");
+        object-fit: cover;
+
+
+        .div-description-content {
+            width: 800px;
+            height: 600px;
+            background-color: $main-color;
+            border-radius: 10px;
+            box-shadow: $box-shadow;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+
+            .div-description-p {
+                width: 80%;
+                display: block;
+                text-align: justify;
+
+                h3 {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .p-info-description {
+                    line-height: $line-height;
+                }
+            }
+        }
+    }
+
+    .div-description-objetives-main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .div-description-objetives {
+            width: 500px;
+            height: 300px;
+            background-color: $main-color;
+            border-radius: 10px;
+            box-shadow: $box-shadow;
+
+            .div-description-objetives-h4 {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: underline;
+            }
+
+            .div-description-objetives-ul {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                line-height: $line-height-li;
+            }
+
+        }
+    }
+
 }

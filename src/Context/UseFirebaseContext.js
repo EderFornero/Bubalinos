@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, query, collection} from 'firebase/firestore';
+import { getFirestore, getDocs, query, collection } from 'firebase/firestore';
 
 export const UseApiContext = createContext();
 
@@ -20,22 +20,28 @@ export const UseFirebaseContext = ({ children }) => {
     const db = getFirestore(app);
 
     //states
-    // const [users, setUsers] = useState([]);
+    const [info, setInfo] = useState([]);
 
-    
+    useEffect(() => {
+        searchCollections("general")
+    }, [])
+
     //function
-    // const searchCollections = async (nameCollection) => {
-    //     // LLAMADA SIMPLE PARA OBTENER TODOS LOS DATOS SOBRE CIERTAS COLECCIONES DE LA BASE DE DATOS.
-    //     const collectionsData = await getDocs(query(collection(db, nameCollection)));
-    //     const collections = collectionsData.docs.map((doc) => {
-    //         return { id: doc.id, ...doc.data() };
-    //     });
-    //     setUsers(collections);
-    // };
+    const searchCollections = async (nameCollection) => {
+        // LLAMADA SIMPLE PARA OBTENER TODOS LOS DATOS SOBRE CIERTAS COLECCIONES DE LA BASE DE DATOS.
+        const collectionsData = await getDocs(query(collection(db, nameCollection)));
+        const collections = collectionsData.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+        });
+        setInfo(collections);
+    };
 
 
     return (
-        <UseApiContext.Provider>
+        <UseApiContext.Provider value={{
+            setInfo,
+            info,
+        }}>
             {children}
         </UseApiContext.Provider>
     );

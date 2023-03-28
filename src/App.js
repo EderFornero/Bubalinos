@@ -10,12 +10,14 @@ import "./styles/styles.scss"
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Presentation />} />
-        <Route path='/home' element={<Home />} />
-      </Routes>
-    </Router>
+    <UseFirebaseContext>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Presentation />} />
+          <Route path='/home' element={<Home />} />
+        </Routes>
+      </Router>
+    </UseFirebaseContext>
   );
 }
 
