@@ -266,3 +266,78 @@ $line-height-li: 30px;
     }
 
 }
+
+.div-handle-bg {
+    width: 100%;
+    min-height: $description-height;
+    background: url("../assets/images/presentation.jpg");
+    object-fit: cover;
+
+    .div-handle-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+
+
+
+        .div-handle-handlings {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            z-index: 1000;
+
+            .div-navlink {
+                text-align: center;
+                margin: 12px;
+                background-color: $main-color;
+                width: 400px;
+                height: min-content;
+                border: 1px solid #000;
+                border-radius: 10px;
+            }
+
+            .navlink-hover:hover {
+                font-size: 18px;
+                transition: .3s all;
+            }
+        }
+    }
+
+    .div-outlet {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .div-handle-info-general {
+            width: 70%;
+            height: 300px;
+            margin-bottom: 12px;
+            background-color: $main-color;
+            border-radius: 10px;
+
+            h4 {
+                text-align: center;
+                text-decoration: underline;
+            }
+
+            .div-handle-info-specific {
+                text-align: justify;
+                margin: 8px;
+                font-size: 18px;
+
+                @media (max-width: $sm) {
+                    font-size: 12px;
+                }
+
+                @media (max-width: $md) {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

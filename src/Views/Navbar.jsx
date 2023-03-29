@@ -25,7 +25,7 @@ function Navbar() {
                     <div className='div-handle-nav'>
                         <Link
                             style={{ color: '#000', textDecoration: 'none' }}
-                            to='/'
+                            to='/handle'
                         >
                             Manejo
                         </Link>
