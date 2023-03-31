@@ -8,9 +8,9 @@ function Navbar() {
             <div className='div-navbar-main'>
                 <div className='div-navbar-logo'>
                     <Link
-                    to="/"
+                        to="/"
                     >
-                    <img src={Blogo} alt="Logo" />
+                        <img src={Blogo} alt="Logo" />
                     </Link>
                 </div>
                 <div className='div-navbar-navegation'>

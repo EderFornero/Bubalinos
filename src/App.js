@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //context
 import { UseFirebaseContext } from './Context/UseFirebaseContext.js'
 //views
-import Navbar from "./Views/Navbar.jsx";
 import Home from "./Views/Home.jsx";
 import Presentation from "./Views/Presentation.jsx";
 import Handle from "./Views/Handle.jsx";
@@ -24,7 +23,6 @@ function App() {
   return (
     <UseFirebaseContext>
       <Router>
-        <Navbar />
         <Routes>
           <Route path='/' element={<Presentation />} />
           <Route path='/home' element={<Home />} />
