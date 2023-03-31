@@ -315,7 +315,7 @@ $line-height-li: 30px;
 
         .div-handle-info-general {
             width: 70%;
-            height: 300px;
+            min-height: 300px;
             margin-bottom: 12px;
             background-color: $main-color;
             border-radius: 10px;
